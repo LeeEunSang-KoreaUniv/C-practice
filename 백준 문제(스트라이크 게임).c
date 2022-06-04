@@ -12,14 +12,14 @@ void inputfuction() {  // 세자리 수를 입력받아 자리 수들을 쪼개 분리하여 배열에 
 	while (1) {
 		printf("Enter 3 numbers: ");
 		scanf_s("%d", &inputs); 
-		if (99 < inputs && inputs < 1000) {
+		if (99 < inputs && inputs < 1000) { // 논리 연산자 활용
 			a = inputs / 100;
 			b = (inputs - a * 100) / 10;
-			c = inputs - a * 100 - b * 10;
+			c = inputs - a * 100 - b * 10;   // 몫을 계산해주는 /연산자로 세자리 수의 자리 당 숫자를 따로 분리
 			if (a != b && b != c && c != a && a != 0 && b != 0 && c != 0) {
 				break;
 			}
-			else if ((a == b || b == c || c == a) && (a != 0 && b != 0 && c != 0)) {
+			else if ((a == b || b == c || c == a) && (a != 0 && b != 0 && c != 0)) { // 논리 연산자 활용
 				printf(" (No same number allowed!) \n");
 			}
 			else {
@@ -39,8 +39,8 @@ void inputfuction() {  // 세자리 수를 입력받아 자리 수들을 쪼개 분리하여 배열에 
  void strikefunction() {  // 스트라이크 개수를 세주고 출력한 후, 그 값을 vic 변수에 전달하는 함수
 	 int str = 0;
 	for (int i = 0; i < 3; i++) {
-		if (num[i] == input[i]) {
-			str++;
+		if (num[i] == input[i]) { // 논리 연산자 활용
+			str++; // 증가 연산자 활용
 		}
 	}
 	printf(" %dS ", str);
@@ -50,7 +50,7 @@ void inputfuction() {  // 세자리 수를 입력받아 자리 수들을 쪼개 분리하여 배열에 
 void ballfunction() {  // 볼 개수를 세주고 출력해주는 함수
 	int ball = 0;
 	for (int i = 0; i < 3; i++) {
-		if (num[i] == input[(i + 1) % 3] || num[i] == input[(i + 2) % 3]) {
+		if (num[i] == input[(i + 1) % 3] || num[i] == input[(i + 2) % 3]) {  // 나머지를 출력해주는 %연산자를 활용해 어느 시작점에서도 배열의 각 인자(0, 1, 2)에 모두 접근할 수 있도록 활용
 			ball++;
 		}
 	}
